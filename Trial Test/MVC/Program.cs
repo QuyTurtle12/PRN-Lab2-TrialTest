@@ -19,6 +19,7 @@ namespace MVC
 			builder.Services.AddScoped<IUOW, UOW>();
 			builder.Services.AddScoped<IStoreAccountService, StoreAccountService>();
 			builder.Services.AddScoped<IMedicineService, MedicineService>();
+			builder.Services.AddScoped<IManufacturerService, ManufacturerService>();
 			builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 			// Get connection string from appsettings.json

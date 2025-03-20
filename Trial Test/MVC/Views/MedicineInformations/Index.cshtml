@@ -7,11 +7,14 @@
 
 <h1>Index</h1>
 
-@if (TempData["userRole"].Equals(ManagerRole))
+@if (TempData["userRole"] != null)
 {
-	<p>
-		<a asp-action="Create">Create New</a>
-	</p>
+	@if (TempData["userRole"].Equals(ManagerRole))
+	{
+		<p>
+			<a asp-action="Create">Create New</a>
+		</p>
+	}
 }
 
 <table class="table">
@@ -60,11 +63,12 @@
 					@Html.DisplayFor(modelItem => item.Manufacturer.ManufacturerName)
 				</td>
 				<td>
-					@if (TempData["userRole"].Equals(ManagerRole))
+					@if (TempData["userRole"] != null)
 					{
-						<a asp-action="Edit" asp-route-id="@item.MedicineId">Edit</a>
-						<a asp-action="Details" asp-route-id="@item.MedicineId">Details</a>
-						<a asp-action="Delete" asp-route-id="@item.MedicineId">Delete</a>
+						@if (TempData["userRole"].Equals(ManagerRole))
+						{
+							<a asp-action="Edit" asp-route-id="@item.MedicineId">Edit</a>
+						}
 					}
 				</td>
 			</tr>
