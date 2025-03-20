@@ -1,0 +1,51 @@
+﻿@page
+@model PharmaceuticalManagement_QUYNNSE171134.Pages.LoginModel
+@{
+<div class="login-container">
+    <div class="login-card">
+        <h2 class="text-center mb-4 fw-bold" style="color: #333;">
+            <i class="bi bi-lock-fill me-2"></i>Welcome Back
+        </h2>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-modern text-center mb-4">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>@Model.ErrorMessage
+            </div>
+        }
+
+        <form method="post">
+            <div class="form-floating-label">
+                    <input asp-for="StoreAccountDTO.EmailAddress"
+                       class="form-control" 
+                       placeholder=" " />
+                    <label asp-for="StoreAccountDTO.EmailAddress">Email Address</label>
+                    <span asp-validation-for="StoreAccountDTO.EmailAddress"
+                      class="text-danger d-block mt-1" 
+                      style="font-size: 0.9em;"></span>
+            </div>
+
+            <div class="form-floating-label">
+                    <input asp-for="StoreAccountDTO.StoreAccountPassword"
+                       type="password" 
+                       class="form-control" 
+                       placeholder=" " />
+                    <label asp-for="StoreAccountDTO.StoreAccountDescription">Password</label>
+                    <span asp-validation-for="StoreAccountDTO.StoreAccountPassword"
+                      class="text-danger d-block mt-1" 
+                      style="font-size: 0.9em;"></span>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-login">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                </button>
+            </div>
+        </form>
+
+        <p class="text-center mt-3" style="color: #666; font-size: 0.9em;">
+            Forgot password? <a href="#" style="color: #6e8efb;">Reset here</a>
+        </p>
+    </div>
+</div>
+}
